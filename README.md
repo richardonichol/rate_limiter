@@ -12,6 +12,8 @@ When you've finished, send us the link to your repo on github / bitbucket / gitl
 
 # Implementation notes
 
-An in-memory cacheing database such as Redis or memcached is needed to properly handle this at produciton scale, by both limiting the overhead of implementing the rate limiter and maintaining a single record of the number of hits in a period across potentially many application servers.
+An in-memory cacheing database such as Redis or memcached is needed to properly handle this at production scale, by both limiting the per request overhead of the rate limiter code and maintaining a single record of the number of hits in a period across potentially many application servers.
 
-The term "a requester" could imply either an IP or address or an authenticated user. For the purposes of the exercise I have assumed an IP address. There would be little difference required in the implementation apart from a chaneg in the cahce keys.
+The term "a requester" could imply either an IP or address or an authenticated user. For the purposes of the exercise I have assumed an IP address. There would be little difference required in the implementation apart from a change in the cache keys.
+
+For this implementation I have gone with Redis with tests in Rspec. I have tried to limit tests to the public interface of the controller, treating other controller methods as implementations details.
