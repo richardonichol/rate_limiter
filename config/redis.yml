@@ -1,0 +1,6 @@
+development:
+  url: redis://127.0.0.1:6379/3
+production:
+  url: redis://airtasker.com:6379/0
+test:
+  url: redis://127.0.0.1:6379/0
